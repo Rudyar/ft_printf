@@ -6,7 +6,7 @@
 #    By: arudy <arudy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 13:46:17 by arudy             #+#    #+#              #
-#    Updated: 2021/12/08 12:01:13 by arudy            ###   ########.fr        #
+#    Updated: 2021/12/08 14:49:02 by arudy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@
 
 SRCS = ft_printf.c ft_putchar.c \
 		ft_putstr.c ft_putnbr.c \
-		ft_putnbr_u.c
+		ft_putnbr_u.c ft_putnbr_x.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -36,13 +36,13 @@ RM = rm -fr
 
 CFLAGS = -Wall -Wextra -Werror
 
+${NAME}:	${OBJS}
+			ar rc ${NAME} ${OBJS}
+
 all:	${NAME}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
 
 bonus:	${OBJS_BONUS}
 			ar rc ${NAME}

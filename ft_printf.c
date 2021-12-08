@@ -6,7 +6,7 @@
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:44:00 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/08 12:08:28 by arudy            ###   ########.fr       */
+/*   Updated: 2021/12/08 15:04:31 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,17 @@ int	check_conv(char c, va_list args)
 		len = ft_putstr(va_arg(args, char *));
 	else if (c == 'i' || c == 'd')
 		len = ft_putnbr(va_arg(args, int));
-	else if (c == '%')
-		len += ft_putchar('%');
 	else if (c == 'u')
 		len += ft_putnbr_u(va_arg(args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		len += ft_putnbr_x(va_arg(args, unsigned int), c);
+	else if (c == 'p')
+	{
+		len += ft_putstr("0x");
+		len += ft_putnbr_x(va_arg(args, unsigned long long int), c);
+	}
+	else if (c == '%')
+		len += ft_putchar('%');
 	return (len);
 }
 
