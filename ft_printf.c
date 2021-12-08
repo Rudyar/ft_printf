@@ -6,11 +6,19 @@
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:44:00 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/07 20:34:55 by arudy            ###   ########.fr       */
+/*   Updated: 2021/12/08 12:08:28 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
+
+int	is_conv(char c)
+{
+	if (c == 'c' || c == 's'|| c == 'p' || c == 'd'|| c == 'i' || c == 'u'
+		|| c == 'x' || c == 'X'||c == '%')
+		return (1);
+	return (0);
+}
 
 int	check_conv(char c, va_list args)
 {
@@ -22,7 +30,11 @@ int	check_conv(char c, va_list args)
 	else if (c == 's')
 		len = ft_putstr(va_arg(args, char *));
 	else if (c == 'i' || c == 'd')
-		len = ft_putstr(va_arg(args, int));
+		len = ft_putnbr(va_arg(args, int));
+	else if (c == '%')
+		len += ft_putchar('%');
+	else if (c == 'u')
+		len += ft_putnbr_u(va_arg(args, unsigned int));
 	return (len);
 }
 
@@ -37,12 +49,9 @@ int	ft_printf(const char *str, ...)
 	len = 0;
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && is_conv(str[i + 1]))
 		{
-			if (str[i + 1] == '%')
-				len += ft_putchar('%');
-			else
-				len += check_conv(str[i + 1], args);
+			len += check_conv(str[i + 1], args);
 			i++;
 		}
 		else

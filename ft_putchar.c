@@ -6,11 +6,11 @@
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:22:47 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/07 19:59:27 by arudy            ###   ########.fr       */
+/*   Updated: 2021/12/08 10:55:38 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

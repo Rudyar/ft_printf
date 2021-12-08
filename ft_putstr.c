@@ -6,21 +6,21 @@
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 20:26:49 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/07 20:31:26 by arudy            ###   ########.fr       */
+/*   Updated: 2021/12/08 10:54:55 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {
 	int	i;
 
 	i = 0;
-		while (s[i])
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
 	return (i);
 }

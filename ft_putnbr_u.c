@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 20:35:10 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/08 12:10:23 by arudy            ###   ########.fr       */
+/*   Created: 2021/12/08 11:59:10 by arudy             #+#    #+#             */
+/*   Updated: 2021/12/08 12:11:07 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr_u(unsigned int n)
 {
 	unsigned int	nb;
 	int				len;
 
-	nb = 0;
-	len = 0;
-	if (n < 0)
-	{
-		len += ft_putchar('-');
-		n *= -1;
-	}
 	nb = n;
+	len = 0;
 	if (nb > 9)
 		len += ft_putnbr(nb / 10);
 	len += ft_putchar(nb % 10 + '0');
