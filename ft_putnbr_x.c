@@ -6,7 +6,7 @@
 /*   By: arudy <arudy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:38:40 by arudy             #+#    #+#             */
-/*   Updated: 2021/12/08 17:44:12 by arudy            ###   ########.fr       */
+/*   Updated: 2021/12/09 10:45:57 by arudy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_putnbr_x(unsigned long long int n, char c)
 {
-	int				len;
-	char 			*base;
+	int		len;
+	char	*base;
 
 	len = 0;
 	if (c == 'X')
